@@ -51,12 +51,24 @@ public class StackCoding {
         }
     }
 
+    static void stockSpan(int[] arr){
+        for(int i = 0; i < arr.length; i++){
+            int span = 1;
+            for(int j=i-1;j>=0 && arr[j]<arr[i];j--){
+                span++;
+            }
+            System.out.print(span+" ");
+        }
+    }
+
    public static void main(String[] args) throws Exception {
-       Scanner scan = new Scanner(System.in);
-       String s = scan.next();
-       System.out.println(validParenthesis(s));
+//       Scanner scan = new Scanner(System.in);
+//       String s = scan.next();
+//       System.out.println(validParenthesis(s));
        int[] arr = { 5, 7, 3, 12, 9 };
+       int[] arr2 = {12, 14, 10, 15, 6, 10};
        //closestSmallest(arr);
        //closestSmallestUsingStack(arr);
+       stockSpan(arr2);
        }
 }
