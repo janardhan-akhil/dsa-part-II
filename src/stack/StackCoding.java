@@ -61,6 +61,18 @@ public class StackCoding {
         }
     }
 
+    static void stockSpanEfficient(int[] arr){
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < arr.length; i++) {
+            while(!stack.isEmpty() && arr[stack.peek()] <= arr[i]){
+                stack.pop();
+            }
+            int span = stack.isEmpty() ? i + 1 : i - stack.peek();
+            System.out.print(span + " ");
+            stack.push(i);
+        }
+    }
+
    public static void main(String[] args) throws Exception {
 //       Scanner scan = new Scanner(System.in);
 //       String s = scan.next();
@@ -69,6 +81,7 @@ public class StackCoding {
        int[] arr2 = {12, 14, 10, 15, 6, 10};
        //closestSmallest(arr);
        //closestSmallestUsingStack(arr);
-       stockSpan(arr2);
+       //stockSpan(arr2);
+       stockSpanEfficient(arr2);
        }
 }
