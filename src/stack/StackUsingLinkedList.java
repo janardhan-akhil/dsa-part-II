@@ -1,5 +1,7 @@
 package stack;
 
+import java.util.Stack;
+
 class StackUnderFlowException1 extends Exception {
 	public StackUnderFlowException1() {
 		super("Stack is empty");
@@ -67,39 +69,9 @@ class StackByLinkedList {
 
 public class StackUsingLinkedList {
 
-	public static boolean validParenthesis(String s) throws StackUnderFlowException1 {
-		StackByLinkedList stack = new StackByLinkedList();
-
-		for (int i = 0; i < s.length(); i++) {
-			char c = s.charAt(i);
-			if (c == '(' || c == '[' || c == '{') {
-				stack.push(c);
-			} else if (stack.size() > 0 && (c == ')' && stack.peek() == '(') || c == ']' && stack.peek() == '['
-					|| c == '}' && stack.peek() == '{') {
-				stack.pop();
-			} else {
-				return false;
-			}
-		}
-		return stack.size() == 0;
-	}
-
-	static void closestSmallest(int[] arr) {
-
-		for (int i = 0; i < arr.length; i++) {
-			int x = -1;
-			for (int j = i - 1; j >= 0; j--) {
-				if (arr[j] < arr[i]) {
-					x = arr[j];
-					break;
-				}
-			}
-			System.out.print(x + " ");
-		}
-	}
-
 	public static void main(String[] args) throws Exception {
 		StackByLinkedList st = new StackByLinkedList();
+
 //		System.out.println(st.size());
 //		System.out.println(st.isEmpty());
 //		st.push(10);
@@ -114,12 +86,7 @@ public class StackUsingLinkedList {
 //		System.out.println(st.peek());
 //		System.out.println(st.isEmpty());
 
-//		Scanner scan = new Scanner(System.in);
-//		String s = scan.next();
-		// System.out.println(validParenthesis(s));
 
-		int[] arr = { 5, 7, 3, 12, 9 };
-		closestSmallest(arr);
 
 	}
 
